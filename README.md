@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Word Spy AI
 
-## Getting Started
+Word Spy AI is a single-player, AI-powered word association game inspired by Codenames. The player tries to find all hidden target words on a 5×5 board while avoiding neutral words and one danger word.
 
-First, run the development server:
+## Live Demo
+
+```text
+https://word-spy-ai.vercel.app
+```
+
+## Requirements
+
+Before running the project locally, make sure you have:
+
+- Node.js installed
+- npm installed
+- an OpenAI API key
+
+## Running the Project Locally
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/word-spy-ai.git
+cd word-spy-ai
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create a `.env.local` file in the project root:
+
+```bash
+OPENAI_API_KEY=your_openai_api_key_here
+```
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open the app in your browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```text
+app/page.tsx
+Main game page and client-side game state.
 
-To learn more about Next.js, take a look at the following resources:
+app/api/generate-clue/route.ts
+Backend API route for generating AI clues.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+data/words.ts
+Local word corpus used to generate the game board.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+lib/game.ts
+Shared game types and board generation logic.
+```
