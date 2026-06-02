@@ -16,8 +16,6 @@ export type Clue = {
   reasoningSummary: string;
 };
 
-export type Difficulty = "easy" | "normal" | "hard";
-
 export function shuffle<T>(arr: T[]): T[] {
   const copy = [...arr];
 
@@ -30,8 +28,8 @@ export function shuffle<T>(arr: T[]): T[] {
 }
 
 export function createBoard(): Card[] {
-    const uniqueWords = Array.from(new Set(WORDS));
-    const selectedWords = shuffle(uniqueWords).slice(0, 25);
+  const uniqueWords = Array.from(new Set(WORDS));
+  const selectedWords = shuffle(uniqueWords).slice(0, 25);
 
   const roles: CardRole[] = [
     ...Array(8).fill("target"),
@@ -52,10 +50,4 @@ export function createBoard(): Card[] {
 export function getRemainingTargets(board: Card[]): number {
   return board.filter((card) => card.role === "target" && !card.revealed)
     .length;
-}
-
-export function getDifficulty(score: number, mistakes: number): Difficulty {
-  if (mistakes >= 2) return "easy";
-  if (score >= 500) return "hard";
-  return "normal";
 }
